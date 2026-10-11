@@ -3,40 +3,82 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Course exercises and downloadable PDFs.">
-  <title>Course Exercises</title>
+  <meta name="description" content="Course notes and exercise sheets for noncommutative homotopy theory and Dirac operators in coarse geometry.">
+  <meta name="theme-color" content="#f5f7f2">
+  <title>Course Materials</title>
   <style>
-    :root { color-scheme: light; --ink: #172522; --muted: #53635e; --paper: #f5f7f2; --card: #fff; --accent: #176b55; --line: #dce5dd; }
+    :root {
+      color-scheme: light;
+      --ink: #172522;
+      --muted: #586a64;
+      --paper: #f4f7f2;
+      --card: #fff;
+      --accent: #176b55;
+      --accent-dark: #105541;
+      --line: #dce6dd;
+      --mint: #e5f1e9;
+    }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    main { width: min(760px, calc(100% - 32px)); margin: 10vh auto; }
-    .eyebrow { color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-    h1 { margin: .4rem 0 .7rem; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -.055em; line-height: 1.05; }
-    .intro { max-width: 56ch; color: var(--muted); font-size: 1.1rem; }
-    .card { margin-top: 2rem; padding: clamp(1.25rem, 4vw, 2rem); border: 1px solid var(--line); border-radius: 18px; background: var(--card); box-shadow: 0 12px 35px #1d3a2610; }
-    h2 { margin: 0 0 .4rem; font-size: 1.2rem; }
-    .card p { margin: 0; color: var(--muted); }
-    .download { display: inline-flex; align-items: center; gap: .55rem; margin-top: 1.2rem; padding: .75rem 1rem; border-radius: 10px; background: var(--accent); color: white; font-weight: 650; text-decoration: none; }
-    .download:hover, .download:focus-visible { background: #105541; }
-    .note { margin-top: 1.5rem; color: var(--muted); font-size: .9rem; }
-    footer { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; color: var(--muted); font-size: .85rem; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 95% 3%, #d9ecdf 0, transparent 31rem),
+        var(--paper);
+      color: var(--ink);
+      font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { width: min(760px, calc(100% - 40px)); margin: 0 auto; padding: clamp(2.5rem, 7vw, 4.5rem) 0 3rem; }
+    .course-list { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    .course-card { position: relative; display: flex; min-height: 270px; flex-direction: column; overflow: hidden; padding: clamp(1.4rem, 3.5vw, 2.2rem); border: 1px solid var(--line); border-radius: 22px; background: rgb(255 255 255 / .9); box-shadow: 0 20px 50px #1637290c; transition: transform .2s ease, box-shadow .2s ease; }
+    .course-card:hover { transform: translateY(-4px); box-shadow: 0 25px 55px #16372916; }
+    .card-top { position: relative; z-index: 1; display: flex; align-items: center; justify-content: flex-start; margin-bottom: 2.3rem; }
+    .course-number { color: var(--accent); font-size: .76rem; font-weight: 800; letter-spacing: .14em; }
+    h2 { max-width: 19ch; margin: 0 0 .75rem; font-size: clamp(1.45rem, 2.5vw, 1.8rem); font-weight: 780; letter-spacing: -.04em; line-height: 1.2; }
+    .course-card p { max-width: 42ch; margin: 0; color: var(--muted); }
+    .card-bottom { margin-top: auto; padding-top: 1.7rem; }
+    .download { display: inline-flex; align-items: center; gap: .55rem; min-height: 2.9rem; padding: .72rem 1rem; border: 1px solid var(--accent); border-radius: 10px; background: var(--accent); color: white; font-weight: 700; text-decoration: none; transition: background .18s ease, transform .18s ease; }
+    .download:hover { transform: translateY(-1px); background: var(--accent-dark); }
+    .download:focus-visible { outline: 3px solid #81b59a; outline-offset: 3px; }
+    .coming-soon { display: inline-flex; align-items: center; gap: .55rem; color: var(--muted); font-size: .92rem; font-weight: 650; }
+    .coming-soon::before { width: .5rem; height: .5rem; border-radius: 50%; background: #a7b8ac; content: ""; }
+    footer { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.1rem; color: var(--muted); font-size: .85rem; }
+    @media (max-width: 680px) {
+      main { width: min(100% - 32px, 520px); padding-top: 2.5rem; }
+      .course-list { grid-template-columns: 1fr; }
+      .course-card { min-height: 250px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
   <main>
-    
-    Exercise sheets for "Noncommutative homotopy theory"
+    <section class="course-list" aria-label="Courses">
+      <article class="course-card">
+        <div class="card-top">
+          <span class="course-number">COURSE 01</span>
+        </div>
+        <h2>Noncommutative homotopy theory</h2>
+        <p>Course script and exercise sheets. New versions of the script will appear here.</p>
+        <div class="card-bottom">
+          <a class="download" href="pdfs/ex1.pdf" type="application/pdf">
+            Sheet for 12.10.2026
+          </a>
+        </div>
+      </article>
 
-    <br><br>
-    <a  href="pdfs/ex1.pdf" type="application/pdf">Sheet for 12.10.2026</a>
-    <br>
-    
-    
+      <article class="course-card">
+        <div class="card-top">
+          <span class="course-number">COURSE 02</span>
+        </div>
+        <h2>Dirac operators in coarse geometry</h2>
+        <p>Course script and materials. New versions of the script will appear here.</p>
+        <div class="card-bottom"><span class="coming-soon">Materials coming soon</span></div>
+      </article>
+    </section>
 
-     
-
-   
-     
+    <footer>Course materials and updates will be posted here throughout the term.</footer>
   </main>
 </body>
 </html>
